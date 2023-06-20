@@ -15,8 +15,15 @@ function _drawCoins() {
 
 export class CoinsController {
   constructor () {
+    // SECTION page load
     console.log('Coins controller is working');
 
+    // SECTION application state changes
+    // NOTE event listener (observer pattern)
+    // registers a listener that watches a specific property of our AppState for changes
+    // changes are triggered by an assignment operator (=) or manually by calling AppState.emit()
+    // the first argument passed to the "on" method must be a property in our AppState. This listener is tied to AppState.coins
+    // the second argument passed to the "on" method is a function, which will be called every time this property in the AppState changes
     AppState.on('coins', _drawCoins)
   }
 
@@ -25,6 +32,8 @@ export class CoinsController {
   addCoin() {
     console.log('The button was clicked');
     coinsService.addCoin()
+
+    // NOTE no longer need to manually call draw, our listener calls draw for us now
     // _drawCoins()
   }
 }

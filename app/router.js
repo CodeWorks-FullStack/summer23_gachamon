@@ -9,6 +9,8 @@ import { AboutView } from "./views/AboutView.js";
 export const router = [
   {
     path: '',
+
+    // NOTE if we want to use multiple controllers in our application, add our controller definitions to an array
     controller: [CoinsController, GachamonsController],
     view: ''
   },

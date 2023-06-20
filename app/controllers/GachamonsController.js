@@ -29,6 +29,7 @@ function _drawActiveGachamon() {
 
   console.log('draw active', singleGachamon);
 
+  // NOTE don't need to foreach over this, it's only one object in our AppState
   setHTML('activeGachamon', singleGachamon.GachamonLargeTemplate)
 
 }
@@ -39,6 +40,7 @@ export class GachamonsController {
     // SECTION page load
     console.log('Look at these lil dudes', AppState.gachamons);
     _drawGachamons()
+    // NOTE we use this to draw our gachamons after they've been brought in from localStorage
     _drawMyGachamons()
 
 
@@ -50,6 +52,8 @@ export class GachamonsController {
   showcaseGachamon(gachamonName) {
     console.log('Do I work?', gachamonName);
     gachamonsService.showcaseGachamon(gachamonName)
+
+    // NOTE no longer need to do this, our listeners will draw for us now
     // _drawActiveGachamon()
   }
 
